@@ -1,0 +1,73 @@
+input {
+    border-radius: 1rem;
+    padding: 0.5rem;
+    height: 20px;
+    border: 0;
+    background-color: #292929;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+textarea {
+    height: 100px;
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 0;
+    background-color: #292929;
+}
+
+::file-selector-button {
+    display: none;
+}
+
+::-webkit-file-upload-button {
+    display: none;
+}
+
+.add-work {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    width: fit-content;
+    background-color: #292929;
+    color: white;
+    border: 0;
+}
+
+img {
+    filter: grayscale(1) invert(1) brightness(2.5) contrast(1)
+}
+
+.contacts {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.contacts>input {
+    flex-grow: 1;
+}
+
+input,
+textarea {
+    color: white;
+}
+
+@media screen and (max-width: 600px) {
+    .dataContainer>div:nth-child(2) {
+        flex-wrap: wrap;
+    }
+}
+
+.PreviewContainer img {
+    height: 25px;
+    width: 25px;
+}
+
+.PreviewContainer {
+    background: linear-gradient(124deg, #5c360d 5%, #000 29%, #000 73%, #5c360d 94%);
+    border-radius: 1.5rem;
+    box-shadow:  5px 5px 5px red
+}
