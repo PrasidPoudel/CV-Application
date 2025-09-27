@@ -12,16 +12,23 @@ function CVPreview(props) {
       <header className="introduction">
         <div style={{ display: "flex" }}>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <h1>{props.name}</h1>
+            <h1>{props.FirstName + props.lastName}</h1>
             <div
               style={{
-                height: "35px",
-                width: "130px",
+                minHeight: "35px",
+                width: "160px",
                 backgroundColor: "yellow",
                 borderRadius: "1rem",
                 padding: "0.5rem",
+                textAlign: "center",
+                color: "black",
+                fontStyle: "italic",
+                display: "flex",
+                alignItems: "center",
               }}
-            ></div>
+            >
+              {props.Expertise}
+            </div>
           </div>
           <div
             style={{
@@ -32,10 +39,21 @@ function CVPreview(props) {
               marginLeft: "auto",
             }}
           >
-            {props.niche}
+            <img
+              src={props.Profile}
+              style={{ height: "100%", width: "100%", borderRadius: "100%" }}
+            />
           </div>
         </div>
-        <div>{props.info}</div>
+        <div
+          style={{
+            overflowWrap: "break-word",
+            fontSize: "1.3rem",
+            marginTop: "1.2rem",
+          }}
+        >
+          {props.info}
+        </div>
       </header>
       <div className="AboutSelf">
         <div className="experience-container">
@@ -43,27 +61,42 @@ function CVPreview(props) {
         </div>
         <div className="education-container">
           <h2>EDUCATION</h2>
+          <div>{props.school}</div>
+          <div>{props.degree}</div>
         </div>
         <div className="skills-container">
           <h2>SKILLS</h2>
         </div>
       </div>
-      <footer>
-        <div>
-          <img src={Address} />
-          <div></div>
+      <br></br>
+      <footer
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "1.5rem",
+          borderTop: "4px solid white",
+          padding: "1rem",
+        }}
+      >
+        <div style={{ display: "flex" }}>
+          <div>
+            <img src={Address} />
+            <div>{props.address}</div>
+          </div>
+          <div style={{ marginLeft: "auto" }}>
+            <img src={Number} />
+            <div>{props.number}</div>
+          </div>
         </div>
-        <div>
-          <img src={Number} />
-          <div></div>
-        </div>
-        <div>
-          <img src={Gmail} />
-          <div></div>
-        </div>
-        <div>
-          <img src={browser} />
-          <div></div>
+        <div style={{ display: "flex" }}>
+          <div>
+            <img src={Gmail} />
+            <div>{props.email}</div>
+          </div>
+          <div style={{ marginLeft: "auto" }}>
+            <img src={browser} />
+            <div>{props.link}</div>
+          </div>
         </div>
       </footer>
     </div>

@@ -1,5 +1,5 @@
 import Education from "../assets/img/work-svgrepo-com.svg";
-function CollegeSection() {
+function CollegeSection({ setCollege, setDegree }) {
   return (
     <div
       className="collegeContainer"
@@ -19,8 +19,16 @@ function CollegeSection() {
         <div style={{ fontSize: "1.5rem" }}>Education</div>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "0.7rem" }}>
-        <input type="text" placeholder="School" />
-        <input type="text" placeholder="Degree" />
+        <input
+          type="text"
+          placeholder="School"
+          onChange={(event) => setCollege(event.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Degree"
+          onChange={(event) => setDegree(event.target.value)}
+        />
       </div>
     </div>
   );

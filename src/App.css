@@ -37,7 +37,7 @@ textarea {
     border: 0;
 }
 
-img {
+.PrimaryContainer img {
     filter: grayscale(1) invert(1) brightness(2.5) contrast(1)
 }
 
@@ -61,7 +61,7 @@ textarea {
     }
 }
 
-.PreviewContainer img {
+.PrimaryContainer img {
     height: 25px;
     width: 25px;
 }
@@ -69,5 +69,28 @@ textarea {
 .PreviewContainer {
     background: linear-gradient(124deg, #5c360d 5%, #000 29%, #000 73%, #5c360d 94%);
     border-radius: 1.5rem;
-    box-shadow:  5px 5px 5px red
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7)
+}
+
+footer>div>div {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+footer img {
+    align-self: center;
+}
+
+footer img {
+    filter: grayscale(1) invert(1) brightness(2.5) contrast(1);
+    height: 25px;
+    width: 25px;
+
+}
+
+.AboutSelf {
+    margin-top: 1.2rem;
+    border-top: 4px solid white;
 }

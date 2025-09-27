@@ -1,13 +1,11 @@
-import { useState } from "react";
 import Profile from "../assets/img/profile1-svgrepo-com.svg";
-import CVPreview from "./CVPreview";
-function PersonalData() {
-  const [FirstName, SetFirstName] = useState("");
-  const [niche, Setniche] = useState("");
-  const [lastName, SetlastName] = useState("");
-  const [info, setInfo] = useState("");
-  let name = FirstName + lastName;
-  <CVPreview name={name} niche={niche} />;
+function PersonalData({
+  SetFirstName,
+  SetLastName,
+  setInfo,
+  setProfile,
+  SetExpertise,
+}) {
   return (
     <div
       className="dataContainer"
@@ -47,14 +45,18 @@ function PersonalData() {
           className="firstname"
           placeholder="First Name"
           style={{ flexGrow: "1" }}
-          onChange={(event) => SetFirstName(event.target.value)}
+          onChange={(event) => {
+            SetFirstName(event.target.value);
+          }}
         />
         <input
           type="text"
           className="lastname"
           placeholder="Last Name"
           style={{ flexGrow: "1" }}
-          onChange={(event) => SetlastName(event.target.value)}
+          onChange={(event) => {
+            SetLastName(event.target.value);
+          }}
         />
       </div>
       <div className="niche" style={{ display: "flex" }}>
@@ -63,7 +65,7 @@ function PersonalData() {
           className="niche"
           placeholder="Front End Developer"
           style={{ flexGrow: "1" }}
-          onChange={(event) => Setniche(event.target.value)}
+          onChange={(event) => SetExpertise(event.target.value)}
         />
       </div>
       <div style={{ display: "flex" }}>
@@ -72,6 +74,9 @@ function PersonalData() {
           accept="image"
           placeholder="Place Your Image"
           style={{ flexGrow: "1" }}
+          onChange={(event) =>
+            setProfile(URL.createObjectURL(event.target.files[0]))
+          }
         />
       </div>
       <textarea
