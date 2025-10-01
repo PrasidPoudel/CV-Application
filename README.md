@@ -1,16 +1,26 @@
-# React + Vite
+📄 CV Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and customizable CV/Resume builder built with React. This application allows users to input their personal details, skills, education, and work experience, and instantly preview a formatted CV.
 
-Currently, two official plugins are available:
+👉 Live Demo: <a href="https://cv-application-taupe-one.vercel.app/">Here</a>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🚀 Features
 
-## React Compiler
+1. ✏️ Add and edit personal information (name, title, contact info, etc.)
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. 🎓 Manage education details (college and Course)
 
-## Expanding the ESLint configuration
+3. 💼 Add work experience (position, company, duration, description)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+4.🛠️ Input and display skills & expertise
+
+5. 👀 Live CV preview while editing
+
+
+🛠️ Tech Stack
+
+1. ⚛️ React – UI framework
+
+2. 🎨 CSS 
+
+3. 🌐 Vercel – for deployment
