@@ -1,12 +1,22 @@
 import Experience from "../assets/img/settings-gear-combination-svgrepo-com.svg";
+import { Skill } from "../classes";
 import { useState } from "react";
-function Skills() {
-  const [index, setIndex] = useState(1);
+import Delete from "../assets/img/delete-junk-2-svgrepo-com.svg";
+function Skills({ onSkillChange, SkillList, SetSkill, DeleteContainer }) {
+  const [index, setIndex] = useState(0);
   let SkillCollection = GetCollection();
   function GetCollection() {
     let array = [];
-    for (let i = 0; i < index; i++) {
-      array.push(<Details />);
+    for (let i = 0; i <= index; i++) {
+      if (!SkillList[i]) continue;
+      array.push(
+        <Details
+          onSkillChange={onSkillChange}
+          uniqueKey={SkillList[i].uniqueKey}
+          DeleteContainer={DeleteContainer}
+          text={SkillList[i].SkillName}
+        />
+      );
     }
     return array;
   }
@@ -35,18 +45,36 @@ function Skills() {
       {SkillCollection}
       <button
         className="add-work add-skills"
-        onClick={() => setIndex(index + 1)}
+        onClick={(event) => {
+          setIndex(index + 1);
+          let SpecialKey = crypto.randomUUID();
+          SetSkill([...SkillList, Skill(SpecialKey, "")]);
+        }}
       >
         +New
       </button>
     </div>
   );
 }
-function Details() {
+function Details({ onSkillChange, uniqueKey, DeleteContainer, text }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "0.2rem" }}>
-      <div style={{ fontSize: "1.1rem" }}>Skill</div>
-      <input type="text" placeholder="Language or Technology" />
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ fontSize: "1.1rem" }}>Skill</div>
+        <img
+          uniqueKey={uniqueKey}
+          src={Delete}
+          onClick={() => DeleteContainer(uniqueKey)}
+          style={{ height: "24px", width: "24px", marginLeft: "auto" }}
+        />
+      </div>
+      <input
+        type="text"
+        placeholder="Language or Technology"
+        uniqueKey={uniqueKey}
+        value={text}
+        onChange={(event) => onSkillChange(event.target.value, uniqueKey)}
+      />
     </div>
   );
 }

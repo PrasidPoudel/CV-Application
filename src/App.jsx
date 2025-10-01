@@ -1,4 +1,4 @@
-import Header from "./Components/Header.jsx";
+
 import WorkExperience from "./Components/WorkExperience.jsx";
 import PersonalData from "./Components/PersonalData.jsx";
 import "./App.css";
@@ -7,6 +7,7 @@ import CollegeSection from "./Components/Education.jsx";
 import Contacts from "./Components/Contacts.jsx";
 import CVPreview from "./Components/CVPreview.jsx";
 import { useState } from "react";
+import { Skill, workExperience } from "./classes.js";
 function App() {
   const [Expertise, SetExpertise] = useState("");
   const [FirstName, SetFirstName] = useState("");
@@ -19,7 +20,30 @@ function App() {
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
   const [link, setLink] = useState("");
-  const [skill, setSkill] = useState("");
+  const [SkillList, SetSkill] = useState([Skill(crypto.randomUUID(), "")]);
+  const [ExperienceList, SetExperience] = useState([
+    workExperience(crypto.randomUUID(), "", "", "", ""),
+  ]);
+  console.log(ExperienceList);
+
+  function onExperienceChange(key, value, id) {
+    let index = ExperienceList.findIndex((item) => item.id === id);
+    let Copy = [...ExperienceList];
+    Copy[index][key] = value;
+    SetExperience(Copy);
+  }
+  function DeleteExperienceContainer(id) {
+    SetExperience(ExperienceList.filter((element) => element.id !== id));
+  }
+  function onSkillChange(val, uniqueKey) {
+    const index = SkillList.findIndex((item) => item.uniqueKey === uniqueKey);
+    const newList = [...SkillList];
+    newList[index].SkillName = val;
+    SetSkill(newList);
+  }
+  function DeleteContainer(uniqueKey) {
+    SetSkill(SkillList.filter((element) => element.uniqueKey !== uniqueKey));
+  }
   return (
     <div
       style={{
@@ -33,7 +57,6 @@ function App() {
         className="PrimaryContainer"
         style={{ display: "flex", flexDirection: "column" }}
       >
-        <Header />
         <PersonalData
           SetFirstName={SetFirstName}
           SetLastName={SetLastName}
@@ -41,8 +64,18 @@ function App() {
           setProfile={setProfile}
           SetExpertise={SetExpertise}
         />
-        <WorkExperience />
-        <Skills  />
+        <WorkExperience
+          onExperienceChange={onExperienceChange}
+          ExperienceList={ExperienceList}
+          SetExperience={SetExperience}
+          DeleteExperienceContainer={DeleteExperienceContainer}
+        />
+        <Skills
+          onSkillChange={onSkillChange}
+          SkillList={SkillList}
+          SetSkill={SetSkill}
+          DeleteContainer={DeleteContainer}
+        />
         <CollegeSection setCollege={setSchool} setDegree={setDegree} />
         <Contacts
           setAddress={setAddress}
@@ -63,6 +96,8 @@ function App() {
         email={email}
         number={number}
         link={link}
+        SkillList={SkillList}
+        ExperienceList={ExperienceList}
       />
     </div>
   );

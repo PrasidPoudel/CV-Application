@@ -94,3 +94,51 @@ footer img {
     margin-top: 1.2rem;
     border-top: 4px solid white;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .PrimaryContainer {
+        height: 100vh;
+        overflow-y: scroll;
+    }
+
+    .experienceContainer>div:nth-child(even) {
+        margin-left: auto;
+    }
+
+    .experienceContainer>div {
+        width: 35%;
+    }
+}
+
+.experienceContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.experienceContainer>div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+h2 {
+    font-family: 'Roboto';
+}
+
+h1 {
+    font-family: 'Playboy Sheriff';
+}
+
+li {
+    font-family: 'Alan Sans';
+}
+
+footer div {
+    font-family: 'Lato';
+    font-size: large;
+}
